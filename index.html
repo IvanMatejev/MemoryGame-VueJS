@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemoryGameVue</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <section id="game">
+        <h1>Memory Game</h1>
+        <section class="scores">
+            <div class="start" @click="startGame">Start</div>
+            <div><span class="moves-number">{{count}}</span> - Move(s)</div>
+            <div>
+                <span class="min">00</span>:<span class="second">00</span>:<span class="ten">00</span>
+            </div>
+            <div class="restart" @click="resetGame">Restart</div>
+        </section>
+        <section class="memory-game">
+                <div   @click="flipCard" v-for="card in cards" class="memory-card" :data-name="card.dataName" >
+                    <img :src="card.frontImg" alt="front" class="front-face" >
+                    <img :src="card.backImg" alt="back" class="back-face"  >
+                </div>
+        </section>
+    </section>   
+</body>
+</html>
